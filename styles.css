@@ -23,7 +23,7 @@ header {
     align-items: center;
     justify-content: space-between;
     padding: 10px 20px;
-    background-color: #0066cc;
+    background-color: #95d5b2;
     color: white;
 }
 
@@ -32,7 +32,7 @@ header img {
 }
 
 header h1 {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     margin-left: 10px;
 }
 
@@ -48,7 +48,7 @@ header nav ul li {
 header nav ul li a {
     color: white;
     text-decoration: none;
-    font-size: 1rem;
+    font-size: 1.4rem;
 }
 
 header nav ul li a:hover {
@@ -70,11 +70,11 @@ section {
 section h2 {
     font-size: 1.8rem;
     margin-bottom: 10px;
-    color: #0066cc;
+    color: #95d5b2; 
 }
 
 section p {
-    font-size: 1rem;
+    font-size: 1.4rem;
     margin-bottom: 15px;
     text-align: justify;
 }
@@ -98,19 +98,19 @@ form input, form textarea, form button {
 }
 
 form input:focus, form textarea:focus {
-    border: 1px solid #0066cc;
+    border: 1px solid #95d5b2; 
     outline: none;
 }
 
 form button {
-    background-color: #0066cc;
+    background-color: #95d5b2;
     color: white;
     border: none;
     cursor: pointer;
 }
 
 form button:hover {
-    background-color: #004a99;
+    background-color: #74c69d; 
 }
 
 footer {
