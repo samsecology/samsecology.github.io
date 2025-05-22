@@ -1,13 +1,22 @@
 document.addEventListener('DOMContentLoaded', function() {
+  if (window.location.hash) {
+    history.replaceState(null, '', window.location.pathname);
+    window.scrollTo(0, 0);
+  }
+
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
       const targetId = this.getAttribute('href');
       const target = document.querySelector(targetId);
       if (target) {
         e.preventDefault();
-        const duration = 1200; 
-        smoothScrollTo(target, duration);
+
         history.replaceState(null, '', window.location.pathname);
+
+        const header = document.querySelector('header');
+        let offset = header ? header.offsetHeight : 0;
+
+        smoothScrollTo(target, 1200, offset);
       }
     });
   });
@@ -52,9 +61,10 @@ window.addEventListener('load', function() {
   history.replaceState(null, '', window.location.pathname);
 });
 
-function smoothScrollTo(target, duration) {
+function smoothScrollTo(target, duration, offset = 0) {
   const startY = window.scrollY;
-  const targetY = target.getBoundingClientRect().top + startY;
+  const targetRect = target.getBoundingClientRect().top;
+  const targetY = targetRect + startY - offset;
   const diff = targetY - startY;
   let start;
 
