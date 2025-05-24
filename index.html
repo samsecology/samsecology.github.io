@@ -8,51 +8,74 @@
 </head>
 <body>
     <header>
-        <h1>Green Light Ecology</h1>
-        <nav>
+        <nav class="transparent-navbar">
+            <div class="logo">
+                <h1>Green Light Ecology</h1>
+            </div>
             <ul>
+                <li><a href="#about" aria-label="Go to About Section">About</a></li>
+                <li><a href="#services" aria-label="Go to Services Section">Services</a></li>
                 <li><a href="#contact" aria-label="Go to Contact Section">Contact</a></li>
             </ul>
         </nav>
-     </header>
+    </header>
+    <div class="carousel">
+        <div class="carousel-text">Getting your project the Greenlight</div>
+        <div class="carousel-item active">
+            <img src="img/forrest.jpg" alt="Slide 1">
+        </div>
+        <div class="carousel-item">
+            <img src="img/climbingTree.jpeg" alt="Slide 2">
+        </div>
+        <div class="carousel-item">
+            <img src="img/field.webp" alt="Slide 3">
+        </div>
+        <div class="carousel-item">
+            <img src="img/bats.webp" alt="Slide 4">
+        </div>
+    </div>
     <main>
         <section id="about">
-            <h2>About Ecology</h2>
+            <h2>About Us</h2>
             <p>
-                Ecology is the study of interactions between living organisms and their environment. 
-                It encompasses the relationships between plants, animals, and microorganisms, as well as their physical surroundings. 
-                By understanding these connections, ecologists aim to protect biodiversity, promote sustainable practices, and ensure a harmonious balance between nature and human activities. 
-                Join us as we explore the wonders of the natural world and work together to preserve it for future generations.
+                With over five years of industry experience and a vast network of skilled freelancers across the UK, we deliver tailored ecological services for projects of every scale. Whether it's a major infrastructure initiative or a residential development, we ensure that your ecological requirements are met practically, efficiently, and responsibly. Our team takes care of the complex ecological jargon and legislative requirements, so you can focus on your project's success without any unnecessary hurdles.
             </p>
-            <img src="img/bats.webp" alt="A bat flying at dusk">
+            <img src="img/sam1.jpeg" alt="sam">
         </section>
         <section id="services">
             <h2>Services Provided</h2>
-            <p>
-                We provide a comprehensive range of ecological survey services designed to meet your environmental assessment needs. 
-                Our expertise includes habitat surveys, protected species surveys, biodiversity assessments, and environmental impact studies. 
-                Whether you require pre-development ecological appraisals or long-term monitoring solutions, our team of experienced ecologists is here to deliver accurate and reliable results. 
-                Partner with us to ensure your projects align with environmental regulations and promote sustainable practices.
-            </p>
-            <img src="img/field.webp" alt="Field survey in progress">
+            <ul>
+                <li>Biodiversity Net Gain (BNG) – Rapid service available for sites in the Southeast</li>
+                <li>Preliminary Ecological Appraisal (PEA)</li>
+                <li>Ecological Clerk of Works (ECoW) – Last minute ECoW service available – found something you are not sure about on site? Don’t take the risk! Call us and we can have a suitably qualified ecologist out to you within 24 hours.</li>
+                <li>Protected Species Surveys – from bats to badgers, great crested newts to water voles, we cover all methods and protected species in the UK.</li>
+            </ul>
+            <img src="img/sam2.jpeg" alt="Field survey in progress">
         </section>
 
         <section id="contact">
             <h2>Contact Me</h2>
+            <p>
+                Whether you are unsure of your project's ecological requirements or need a specific survey conducted, do not hesitate to get in contact!
+            </p>
+            <p>
+                <strong>Email:</strong> <a href="mailto:greenlightecologyltd@gmail.com">greenlightecologyltd@gmail.com</a><br>
+                <strong>Mobile:</strong> <span>+44 123 456 7890</span> <!-- Replace with your actual mobile number -->
+            </p>
             <form>
                 <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required>
+                <input type="text" id="name" name="name" placeholder="Enter your name" required>
 
                 <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
 
                 <label for="request">Request:</label>
-                <textarea id="request" name="request" required></textarea>
+                <textarea id="request" name="request" placeholder="Describe your request" required></textarea>
 
                 <button type="submit">Send</button>
             </form>
         </section>
-       </main>
+    </main>
 
     <footer>
         <p>&copy; 2025 Bashaar Dhoot. All rights reserved.</p>
@@ -64,6 +87,6 @@
             </ul>
         </nav>
     </footer>
-<script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>

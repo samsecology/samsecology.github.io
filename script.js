@@ -54,6 +54,8 @@ document.addEventListener('DOMContentLoaded', function() {
       form.reset();
     });
   }
+
+  initializeCarousel();
 });
 
 window.addEventListener('load', function() {
@@ -82,4 +84,25 @@ function smoothScrollTo(target, duration, offset = 0) {
 
 function easeInOutQuad(t) {
   return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
+}
+
+function initializeCarousel() {
+  const carouselItems = document.querySelectorAll('.carousel-item');
+  let currentIndex = 0;
+  const intervalTime = 5000;
+
+  function showSlide(index) {
+    carouselItems.forEach((item, i) => {
+      item.classList.toggle('active', i === index);
+    });
+  }
+
+  function nextSlide() {
+    currentIndex = (currentIndex + 1) % carouselItems.length;
+    showSlide(currentIndex);
+  }
+
+  showSlide(currentIndex);
+
+  setInterval(nextSlide, intervalTime);
 }
