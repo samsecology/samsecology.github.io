@@ -6,6 +6,13 @@
 
 html {
     scroll-behavior: smooth;
+    scroll-padding-top: 70px; 
+}
+
+@media (max-width: 768px) {
+    html {
+        scroll-padding-top: 120px;
+    }
 }
 
 body {
@@ -35,24 +42,39 @@ header {
     padding: 10px 20px;
     background-color: transparent;
     color: #e9f5db;
+    position: relative;
 }
 
-.transparent-navbar ul {
+.nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: #e9f5db;
+    cursor: pointer;
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    z-index: 1001;
+}
+
+.nav-links {
     list-style: none;
     display: flex;
+    transition: all 0.3s ease;
 }
 
-.transparent-navbar ul li {
+.nav-links li {
     margin: 0 10px;
 }
 
-.transparent-navbar ul li a {
+.nav-links li a {
     color: #e9f5db;
     text-decoration: none;
     font-size: 1.4rem;
 }
 
-.transparent-navbar ul li a:hover {
+.nav-links li a:hover {
     color: #cfe1b9;
     text-decoration: underline;
 }
@@ -166,7 +188,6 @@ form button:hover {
     color: #cfe1b9;
 }
 
-
 footer {
     background-color: #cfe1b9;
     color: #e9f5db;
@@ -198,6 +219,9 @@ footer nav ul li a:hover {
 
 /* Responsive Styles */
 @media (max-width: 768px) {
+    html {
+        scroll-padding-top: 120px;
+    }
     header {
         text-align: center;
     }
@@ -206,15 +230,6 @@ footer nav ul li a:hover {
         flex-direction: column;
         text-align: center;
         padding: 10px;
-    }
-
-    .transparent-navbar ul {
-        flex-direction: column;
-        padding: 0;
-    }
-
-    .transparent-navbar ul li {
-        margin: 5px 0;
     }
 
     .logo h1 {
@@ -233,5 +248,28 @@ footer nav ul li a:hover {
 
     section {
         margin: 20px 0;
+    }
+
+    .nav-toggle {
+        display: block;
+    }
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        background: rgba(51, 51, 51, 0.98);
+        position: absolute;
+        right: 0;
+        top: 60px; 
+        width: 180px;
+        padding: 1rem;
+        border-radius: 8px;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+        z-index: 1000;
+    }
+    .nav-links.show {
+        display: flex;
+    }
+    .nav-links li {
+        margin: 10px 0;
     }
 }
