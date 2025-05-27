@@ -1,18 +1,10 @@
 document.addEventListener('DOMContentLoaded', function() {
+  // --- 1. Anchor default scroll (NO smooth scroll) ---
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
-      e.preventDefault(); 
-
-      const targetId = this.getAttribute('href');
-      const target = document.querySelector(targetId);
-      if (target) {
-        history.replaceState(null, '', window.location.pathname);
-
-        const header = document.querySelector('header');
-        let offset = header ? header.offsetHeight : 0;
-
-        smoothScrollTo(target, 1200, offset);
-      }
+      // No preventDefault! Allow native anchor jump
+      // No JS smooth scrolling
+      history.replaceState(null, '', window.location.pathname);
     });
   });
 
@@ -21,6 +13,7 @@ document.addEventListener('DOMContentLoaded', function() {
     window.scrollTo(0, 0);
   }
 
+  // --- 2. Nav Toggle handler ---
   const navToggle = document.querySelector('.nav-toggle');
   const navLinks = document.querySelector('.nav-links');
   if (navToggle && navLinks) {
@@ -37,6 +30,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
+  // --- 3. Form validation handler ---
   const form = document.querySelector('form');
   if (form) {
     form.addEventListener('submit', function(event) {
@@ -71,6 +65,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
+  // --- 4. Carousel ---
   initializeCarousel();
 });
 
@@ -78,29 +73,6 @@ window.addEventListener('load', function() {
   window.scrollTo(0, 0);
   history.replaceState(null, '', window.location.pathname);
 });
-
-function smoothScrollTo(target, duration, offset = 0) {
-  const startY = window.scrollY;
-  const targetRect = target.getBoundingClientRect().top;
-  const targetY = targetRect + startY - offset;
-  const diff = targetY - startY;
-  let start;
-
-  function step(timestamp) {
-    if (!start) start = timestamp;
-    const time = timestamp - start;
-    const percent = Math.min(time / duration, 1);
-    window.scrollTo(0, startY + diff * easeInOutQuad(percent));
-    if (time < duration) {
-      requestAnimationFrame(step);
-    }
-  }
-  requestAnimationFrame(step);
-}
-
-function easeInOutQuad(t) {
-  return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
-}
 
 function initializeCarousel() {
   const carouselItems = document.querySelectorAll('.carousel-item');
