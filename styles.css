@@ -69,14 +69,13 @@ header {
 }
 
 .nav-links li a {
-    color: #e9f5db;
+    color: white;
     text-decoration: none;
-    font-size: 1.4rem;
+    font-size: 2.2rem;
 }
 
 .nav-links li a:hover {
     color: #cfe1b9;
-    text-decoration: underline;
 }
 
 .logo h1 {

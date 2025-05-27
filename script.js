@@ -1,4 +1,21 @@
 document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      e.preventDefault(); 
+
+      const targetId = this.getAttribute('href');
+      const target = document.querySelector(targetId);
+      if (target) {
+        history.replaceState(null, '', window.location.pathname);
+
+        const header = document.querySelector('header');
+        let offset = header ? header.offsetHeight : 0;
+
+        smoothScrollTo(target, 1200, offset);
+      }
+    });
+  });
+
   if (window.location.hash) {
     history.replaceState(null, '', window.location.pathname);
     window.scrollTo(0, 0);
@@ -19,23 +36,6 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     });
   }
-
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-      const targetId = this.getAttribute('href');
-      const target = document.querySelector(targetId);
-      if (target) {
-        e.preventDefault();
-
-        history.replaceState(null, '', window.location.pathname);
-
-        const header = document.querySelector('header');
-        let offset = header ? header.offsetHeight : 0;
-
-        smoothScrollTo(target, 1200, offset);
-      }
-    });
-  });
 
   const form = document.querySelector('form');
   if (form) {
