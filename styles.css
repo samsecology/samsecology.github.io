@@ -38,7 +38,7 @@ z-index: 10;
 .transparent-navbar {
 display: flex;
 align-items: center;
-justify-content: flex-start; /* All items left-aligned */
+justify-content: space-between;
 padding: 10px 20px;
 background-color: transparent;
 color: #e9f5db;
