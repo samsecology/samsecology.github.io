@@ -62,9 +62,12 @@ header {
   align-items: center;
   justify-content: space-between;
   padding: 10px 20px;
-  background-color: transparent;
-  color: #e9f5db;
+  background: rgba(255,255,255,0.3);
+  backdrop-filter: blur(10px);  
+  -webkit-backdrop-filter: blur(10px); 
+  color: #245824;
   position: relative;
+  box-shadow: 0 2px 12px rgba(44,95,45,0.09);
 }
 
 .logo {
@@ -135,6 +138,10 @@ header {
   color: #4A5D23;
 }
 
+.nav-links li a, .logo h1 {
+  text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+}
+
 /* ===========================
    CAROUSEL
    =========================== */
@@ -170,13 +177,19 @@ header {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  color: white;
+  color: #fff;
   font-family: 'Whiterock', Arial, sans-serif;
   font-size: 3rem;
   font-weight: bold;
   text-align: center;
   z-index: 2;
-  text-shadow: 0px 4px 6px rgba(0, 0, 0, 0.5);
+  /* Strong text-shadow for pop and readability */
+  text-shadow:
+    0 2px 8px rgba(0,0,0,0.7),
+    0 0 6px rgba(0,0,0,0.5),
+    1px 1px 0 #222;
+  /* No background, no blur, no box-shadow, no border radius */
+  padding: 0;
 }
 
 /* ===========================
@@ -341,7 +354,7 @@ section p {
 }
 
 #contact {
-  background: rgba(255,255,255,0.92);
+  background: rgba(255,255,255,0.5);
   border-radius: 16px;
   box-shadow: 0 4px 24px rgba(44,95,45,0.11);
 }
@@ -448,35 +461,57 @@ footer nav ul li a:hover {
    =========================== */
 @media (max-width: 900px) {
   .transparent-navbar {
-    flex-direction: column;
-    align-items: flex-start;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
     padding: 10px;
+    background: rgba(255,255,255,0.75);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    position: relative;
   }
   .logo {
-    margin-bottom: 8px;
+    margin-bottom: 0;
     justify-content: flex-start;
-    width: 100%;
+    width: auto;
+    gap: 10px;
+    align-items: center;
+    flex-shrink: 0;
   }
   .logo-img {
     max-width: 48px;
   }
   .logo h1 {
-    font-size: 1.4rem;
+    font-size: 1.2rem;
+    display: block;
+    white-space: nowrap;
   }
   .nav-toggle {
     display: block;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: #4A5D23;
+    cursor: pointer;
+    position: static;
+    margin-left: auto;
+    z-index: 1001;
+    align-self: center;
   }
   .nav-links {
     display: none;
     flex-direction: column;
     width: 100%;
-    background: rgba(76, 93, 35, 0.98);
+    background: rgba(255,255,255,0.4);      /* clear tint for dropdown */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     position: absolute;
     left: 0;
     top: 100%;
     padding: 1rem 0;
     border-radius: 0 0 8px 8px;
     z-index: 1000;
+    box-shadow: 0 2px 12px rgba(44,95,45,0.09);
   }
   .nav-links.show {
     display: flex;
@@ -488,32 +523,80 @@ footer nav ul li a:hover {
     padding-left: 24px;
   }
   .nav-links li a {
-    color: #e9f5db;
+    color: #245824;
     background: none;
-    font-size: 1.4rem;
+    font-size: 1.1rem;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.10);
   }
   .nav-links li a:hover {
-    color: #4A5D23;
-    background: #e9f5db;
+    color: #fff;
+    background: #4A5D23;
+  }
+  .carousel-text {
+    font-size: 3rem;
+    padding: 0 10px;
+    word-break: break-word;
+    color: #fff;
+    font-family: 'Whiterock', Arial, sans-serif;
+    font-weight: bold;
+    text-align: center;
+    z-index: 2;
+    text-shadow:
+      0 2px 8px rgba(0,0,0,0.7),
+      0 0 6px rgba(0,0,0,0.5),
+      1px 1px 0 #222;
+    background: none;
+    box-shadow: none;
+    border-radius: 0;
   }
 }
 
 @media (max-width: 500px) {
-  .logo h1 {
-    display: none;
+  .transparent-navbar {
+    padding: 8px 4px;
+    background: rgba(255,255,255,0.4);    /* slightly more solid for tiny screens */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+  .logo {
+    gap: 6px;
+    margin-bottom: 0;
+    align-items: center;
   }
   .logo-img {
-    max-width: 36px;
+    max-width: 30px;
+  }
+  .logo h1 {
+    font-size: 0.95rem;
+    display: block;
+    white-space: nowrap;
   }
   .carousel-text {
-    font-size: 2rem;
-    padding: 0 10px;
-    word-wrap: break-word;
+    font-size: 1.5rem;
+    padding: 0 8px;
+    word-break: break-word;
+    color: #fff;
+    font-family: 'Whiterock', Arial, sans-serif;
+    font-weight: bold;
+    text-align: center;
+    z-index: 2;
+    text-shadow:
+      0 2px 8px rgba(0,0,0,0.7),
+      0 0 6px rgba(0,0,0,0.5),
+      1px 1px 0 #222;
+    background: none;
+    box-shadow: none;
+    border-radius: 0;
   }
   main {
     padding: 10px;
   }
   section {
     margin: 20px 0;
+  }
+  .nav-links {
+    background: rgba(255,255,255,0.4);    /* most solid for max contrast */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
   }
 }
