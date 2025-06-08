@@ -502,7 +502,7 @@ footer nav ul li a:hover {
     display: none;
     flex-direction: column;
     width: 100%;
-    background: rgba(255,255,255,0.4);      /* clear tint for dropdown */
+    background: rgba(255,255,255,0.75);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     position: absolute;
@@ -554,7 +554,7 @@ footer nav ul li a:hover {
 @media (max-width: 500px) {
   .transparent-navbar {
     padding: 8px 4px;
-    background: rgba(255,255,255,0.4);    /* slightly more solid for tiny screens */
+    background: rgba(255,255,255,0.75);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
   }
@@ -568,7 +568,6 @@ footer nav ul li a:hover {
   }
   .logo h1 {
     font-size: 0.95rem;
-    text-shadow: 0 1px 2px rgba(0,0,0,0.10);
     display: block;
     white-space: nowrap;
   }
@@ -596,7 +595,7 @@ footer nav ul li a:hover {
     margin: 20px 0;
   }
   .nav-links {
-    background: rgba(255,255,255,0.4);    /* most solid for max contrast */
+    background: rgba(255,255,255,0.75);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
   }
