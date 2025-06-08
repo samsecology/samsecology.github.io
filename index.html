@@ -37,68 +37,76 @@
         </div>
     </div>
     <main>
-        <section id="about">
-            <h2>About Us</h2>
-            <p>
-                With over five years of industry experience and a vast network of skilled freelancers across the UK, we deliver tailored ecological services for projects of every scale. Whether it's a major infrastructure initiative or a residential development, we ensure that your ecological requirements are met practically, efficiently, and responsibly. Our team takes care of the complex ecological jargon and legislative requirements, so you can focus on your project's success without any unnecessary hurdles.
-            </p>
-            <img src="img/sam1.jpeg" alt="sam">
+        <!-- About Section -->
+        <section id="about" class="about-section">
+            <div class="about-container">
+                <img src="img/oakPic.jpg" alt="sam" class="about-img">
+                <div class="about-text">
+                    <h2>About Us</h2>
+                    <p>
+                        With over five years of industry experience and a vast network of skilled freelancers across the UK, we deliver tailored ecological services for projects of every scale. Whether it's a major infrastructure initiative or a residential development, we ensure that your ecological requirements are met practically, efficiently, and responsibly. Our team takes care of the complex ecological jargon and legislative requirements, so you can focus on your project's success without any unnecessary hurdles.
+                    </p>
+                </div>
+            </div>
         </section>
-        <section id="services">
-            <h2>Services Provided</h2>
-            <ul>
-                <li>Biodiversity Net Gain (BNG) – Rapid service available for sites in the Southeast</li>
-                <li>Preliminary Ecological Appraisal (PEA)</li>
-                <li>Ecological Clerk of Works (ECoW) – Last minute ECoW service available – found something you are not sure about on site? Don’t take the risk! Call us and we can have a suitably qualified ecologist out to you within 24 hours.</li>
-                <li>Protected Species Surveys – from bats to badgers, great crested newts to water voles, we cover all methods and protected species in the UK.</li>
-            </ul>
-            <img src="img/sam2.jpeg" alt="Field survey in progress">
+        <!-- Services Section -->
+        <section id="services" class="services-section">
+            <div class="services-container">
+                <img src="img/beatFlyPic.jpg" alt="Field survey in progress" class="services-img">
+                <div class="services-text">
+                    <h2>Services Provided</h2>
+                    <ul class="custom-bullets">
+                        <li>Biodiversity Net Gain (BNG) – Rapid service available for sites in the Southeast</li>
+                        <li>Preliminary Ecological Appraisal (PEA)</li>
+                        <li>Ecological Clerk of Works (ECoW) – Last minute ECoW service available – found something you are not sure about on site? Don’t take the risk! Call us and we can have a suitably qualified ecologist out to you within 24 hours.</li>
+                        <li>Protected Species Surveys – from bats to badgers, great crested newts to water voles, we cover all methods and protected species in the UK.</li>
+                    </ul>
+                </div>
+            </div>
         </section>
-
         <!-- Contact section with clouds/sky background, full-bleed -->
         <div id="contact-bg-wrapper">
-          <!-- Sky/Clouds Background -->
-          <div class="sky-bg">
-            <canvas id="canv"></canvas>
-            <div class="sky">
-              <div class="clouds">
-                <div class="c1 one"></div>
-                <div class="c1 two"></div>
-                <div class="c1 three"></div>
-                <div class="c1 four"></div>
-                <div class="c2 one"></div>
-                <div class="c2 two"></div>
-                <div class="c2 three"></div>
-                <div class="c2 four"></div>
-              </div>
+            <!-- Sky/Clouds Background -->
+            <div class="sky-bg">
+                <canvas id="canv"></canvas>
+                <div class="sky">
+                    <div class="clouds">
+                        <div class="c1 one"></div>
+                        <div class="c1 two"></div>
+                        <div class="c1 three"></div>
+                        <div class="c1 four"></div>
+                        <div class="c2 one"></div>
+                        <div class="c2 two"></div>
+                        <div class="c2 three"></div>
+                        <div class="c2 four"></div>
+                    </div>
+                </div>
             </div>
-          </div>
-          <!-- Contact Content -->
-          <div id="contact" class="contact-content">
-            <h2>Contact Me</h2>
-            <p>
-                Whether you are unsure of your project's ecological requirements or need a specific survey conducted, do not hesitate to get in contact!
-            </p>
-            <p>
-                <strong>Email:</strong> <a href="mailto:greenlightecologyltd@gmail.com">greenlightecologyltd@gmail.com</a><br>
-                <strong>Mobile:</strong> <span>+44 7503 139 327</span>
-            </p>
-            <form>
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" placeholder="Enter your name" required>
+            <!-- Contact Content -->
+            <div id="contact" class="contact-content">
+                <h2>Contact Me</h2>
+                <p>
+                    Whether you are unsure of your project's ecological requirements or need a specific survey conducted, do not hesitate to get in contact!
+                </p>
+                <p>
+                    <strong>Email:</strong> <a href="mailto:greenlightecologyltd@gmail.com">greenlightecologyltd@gmail.com</a><br>
+                    <strong>Mobile:</strong> <span>+44 7503 139 327</span>
+                </p>
+                <form>
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your name" required>
 
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
 
-                <label for="request">Request:</label>
-                <textarea id="request" name="request" placeholder="Describe your request" required></textarea>
+                    <label for="request">Request:</label>
+                    <textarea id="request" name="request" placeholder="Describe your request" required></textarea>
 
-                <button type="submit">Send</button>
-            </form>
-          </div>
+                    <button type="submit">Send</button>
+                </form>
+            </div>
         </div>
     </main>
-
     <footer>
         <p>&copy; 2025 Bashaar Dhoot. All rights reserved.</p>
         <nav>

@@ -2,7 +2,6 @@
    GLOBAL RESET & BASE STYLES
    =========================== */
 * {
-  /* outline: 1px solid red !important; /* Uncomment for debugging layout issues */
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -82,6 +81,8 @@ header {
   display: block;
   margin-left: 0;
   margin-right: 0;
+  border-radius: 50%; /* Make the logo image circular */
+  box-shadow: 0 2px 12px rgba(44,95,45,0.11);
 }
 
 .logo h1 {
@@ -90,6 +91,7 @@ header {
   display: block;
   letter-spacing: 0.05em;
   font-family: 'Whiterock', Arial, sans-serif;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.5);
 }
 
 .nav-toggle {
@@ -125,6 +127,7 @@ header {
   border-radius: 4px;
   transition: background 0.2s, color 0.2s;
   outline: none;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.5);
 }
 
 .nav-links li a:hover {
@@ -136,10 +139,6 @@ header {
   outline: 2px solid #4A5D23;
   background: none;
   color: #4A5D23;
-}
-
-.nav-links li a, .logo h1 {
-  text-shadow: 0 2px 8px rgba(0,0,0,0.5);
 }
 
 /* ===========================
@@ -183,13 +182,131 @@ header {
   font-weight: bold;
   text-align: center;
   z-index: 2;
-  /* Strong text-shadow for pop and readability */
   text-shadow:
     0 2px 8px rgba(0,0,0,0.7),
     0 0 6px rgba(0,0,0,0.5),
     1px 1px 0 #222;
-  /* No background, no blur, no box-shadow, no border radius */
   padding: 0;
+}
+
+/* ===========================
+   ABOUT SECTION (IMPROVED)
+   =========================== */
+.about-section {
+  padding: 40px 0;
+  background: #f8faf4;
+}
+
+.about-container {
+  display: flex;
+  align-items: center;
+  max-width: 1100px;
+  margin: 0 auto;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+
+.about-img {
+  width: 320px;
+  max-width: 100%;
+  height: auto;
+  border-radius: 14px;
+  box-shadow: 0 4px 24px rgba(60, 90, 60, 0.08);
+  flex-shrink: 0;
+  object-fit: cover;
+}
+
+.about-text {
+  flex: 1 1 300px;
+  min-width: 220px;
+}
+
+.about-text h2 {
+  margin-top: 0;
+  margin-bottom: 0.7em;
+  color: #4A5D23;
+  font-size: 2rem;
+}
+
+.about-text p {
+  margin: 0;
+  line-height: 1.7;
+  color: #28522a;
+  font-size: 1.15rem;
+  text-align: left;
+}
+
+/* ===========================
+   SERVICES SECTION (IMAGE LEFT, TEXT RIGHT, CUSTOM BULLETS)
+   =========================== */
+.services-section {
+  padding: 40px 0;
+  background: #f8faf4;
+}
+
+.services-container {
+  display: flex;
+  align-items: flex-start;
+  max-width: 1100px;
+  margin: 0 auto;
+  gap: 32px;
+  flex-wrap: wrap;
+  flex-direction: row;         /* Keep image right */
+}
+
+.services-img {
+  width: 320px;
+  max-width: 100%;
+  height: auto;
+  border-radius: 14px;
+  box-shadow: 0 4px 24px rgba(60, 90, 60, 0.08);
+  flex-shrink: 0;
+  object-fit: cover;
+  order: 2;                   /* Ensure image is always last (right) */
+}
+
+.services-text {
+  flex: 1 1 300px;
+  min-width: 220px;
+  order: 1;
+}
+
+.services-text h2 {
+  margin-top: 0;
+  margin-bottom: 0.7em;
+  color: #4A5D23;
+  font-size: 2rem;
+}
+
+.custom-bullets {
+  list-style: none;
+  padding-left: 0;
+}
+
+.custom-bullets li {
+  display: flex;                /* Flex for bullet+text always side-by-side */
+  align-items: center;
+  gap: 0.7em;
+  margin-bottom: 16px;
+  font-size: 1.1rem;
+  color: #28522a;
+  line-height: 1.6;
+  position: relative;
+}
+
+.custom-bullets li::before {
+  content: "";
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: url('img/logoImage.png') center center / cover no-repeat, #e9f5db;
+  border: 1px solid #cfe1b9;
+  box-shadow: 0 1px 4px rgba(44, 95, 45, 0.08);
+  display: inline-block;
+  margin-right: 0.2em;
+  margin-left: 0;
+  position: static;            /* Remove absolute so it stays inline! */
 }
 
 /* ===========================
@@ -218,22 +335,6 @@ section p {
   font-size: 1.4rem;
   margin-bottom: 15px;
   text-align: justify;
-}
-
-/* ===========================
-   BULLET POINTS
-   =========================== */
-#services ul {
-  list-style-type: disc;
-  margin: 20px 0 20px 24px;
-  padding-left: 16px;
-  color: #2c5f2d;
-  font-size: 1.2rem;
-  line-height: 1.8;
-}
-
-#services ul li {
-  margin-bottom: 10px;
 }
 
 /* ===========================
@@ -350,7 +451,6 @@ section p {
   max-width: 700px;
   margin: 0 auto;
   padding: 2rem 1rem;
-  /* background: rgba(255,255,255,0.85); border-radius: 16px; */
 }
 
 #contact {
@@ -459,6 +559,7 @@ footer nav ul li a:hover {
 /* ===========================
    RESPONSIVE STYLES
    =========================== */
+/* ----------- TABLET & SMALL DESKTOPS ----------- */
 @media (max-width: 900px) {
   .transparent-navbar {
     flex-direction: row;
@@ -485,6 +586,7 @@ footer nav ul li a:hover {
     font-size: 1.2rem;
     display: block;
     white-space: nowrap;
+    text-shadow: 0 2px 5px rgba(0,0,0,0.25);
   }
   .nav-toggle {
     display: block;
@@ -533,7 +635,7 @@ footer nav ul li a:hover {
     background: #4A5D23;
   }
   .carousel-text {
-    font-size: 3rem;
+    font-size: 2.2rem;
     padding: 0 10px;
     word-break: break-word;
     color: #fff;
@@ -549,8 +651,120 @@ footer nav ul li a:hover {
     box-shadow: none;
     border-radius: 0;
   }
+  .about-container,
+  .services-container {
+    gap: 20px;
+  }
+  .about-img,
+  .services-img {
+    width: 180px;
+  }
 }
 
+/* ----------- SERVICES FLEX AND BULLETS FIX ----------- */
+/* Place image on the right, text/bullets on the left, and keep bullets inline with text at all sizes */
+.services-container {
+  display: flex;
+  align-items: flex-start;
+  max-width: 1100px;
+  margin: 0 auto;
+  gap: 32px;
+  flex-wrap: wrap;
+  flex-direction: row;         /* Image right, text left */
+}
+.services-text {
+  flex: 1 1 300px;
+  min-width: 220px;
+  order: 1;
+}
+.services-img {
+  width: 320px;
+  max-width: 100%;
+  height: auto;
+  border-radius: 14px;
+  box-shadow: 0 4px 24px rgba(60, 90, 60, 0.08);
+  flex-shrink: 0;
+  object-fit: cover;
+  order: 2;                   /* Image always right */
+}
+.custom-bullets {
+  list-style: none;
+  padding-left: 0;
+}
+.custom-bullets li {
+  display: flex;
+  align-items: center;
+  gap: 0.7em;
+  margin-bottom: 16px;
+  font-size: 1.1rem;
+  color: #28522a;
+  line-height: 1.6;
+  position: relative;
+}
+.custom-bullets li::before {
+  content: "";
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: url('img/logoImage.png') center center / cover no-repeat, #e9f5db;
+  border: 1px solid #cfe1b9;
+  box-shadow: 0 1px 4px rgba(44, 95, 45, 0.08);
+  display: inline-block;
+  margin-right: 0.2em;
+  margin-left: 0;
+  position: static;
+}
+
+/* ----------- TABLET & LARGE MOBILES ----------- */
+@media (max-width: 700px) {
+  .about-container,
+  .services-container {
+    flex-direction: column;
+    gap: 16px;
+    text-align: center;
+    align-items: stretch;
+  }
+  .about-img,
+  .services-img {
+    margin: 0 auto;
+    width: 90vw;
+    max-width: 320px;
+  }
+  .about-text,
+  .services-text {
+    padding: 0 10px;
+  }
+  .about-text p,
+  .services-text p {
+    text-align: center;
+  }
+  .services-text {
+    order: 1;
+  }
+  .services-img {
+    order: 2;
+  }
+  .custom-bullets li {
+    gap: 0.7em;
+    padding-left: 0;
+    padding-top: 0;
+    justify-content: flex-start;
+    text-align: left;
+  }
+  .custom-bullets li::before {
+    margin-right: 0.2em;
+    margin-left: 0;
+    width: 16px;
+    height: 16px;
+    position: static;
+    left: unset;
+    top: unset;
+    transform: none;
+  }
+}
+
+/* ----------- SMALL MOBILE ----------- */
 @media (max-width: 500px) {
   .transparent-navbar {
     padding: 8px 4px;
@@ -570,9 +784,10 @@ footer nav ul li a:hover {
     font-size: 0.95rem;
     display: block;
     white-space: nowrap;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.12);
   }
   .carousel-text {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     padding: 0 8px;
     word-break: break-word;
     color: #fff;
@@ -581,8 +796,8 @@ footer nav ul li a:hover {
     text-align: center;
     z-index: 2;
     text-shadow:
-      0 2px 8px rgba(0,0,0,0.7),
-      0 0 6px rgba(0,0,0,0.5),
+      0 2px 6px rgba(0,0,0,0.45),
+      0 0 3px rgba(0,0,0,0.25),
       1px 1px 0 #222;
     background: none;
     box-shadow: none;
@@ -598,5 +813,28 @@ footer nav ul li a:hover {
     background: rgba(255,255,255,0.75);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
+  }
+  .about-img,
+  .services-img {
+    width: 80vw;
+    max-width: 220px;
+  }
+  .about-text h2,
+  .services-text h2 {
+    font-size: 1.1rem;
+  }
+  .about-text p,
+  .services-text p {
+    font-size: 0.94rem;
+  }
+  .custom-bullets li {
+    font-size: 1rem;
+    gap: 0.5em;
+    padding-top: 0;
+  }
+  .custom-bullets li::before {
+    width: 13px;
+    height: 13px;
+    margin-right: 0.2em;
   }
 }
