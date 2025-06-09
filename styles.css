@@ -559,6 +559,18 @@ footer nav ul li a:hover {
 /* ===========================
    RESPONSIVE STYLES
    =========================== */
+
+/* Prevent horizontal scroll on all devices */
+html, body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+/* Universal box-sizing */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
 /* ----------- TABLET & SMALL DESKTOPS ----------- */
 @media (max-width: 900px) {
   .transparent-navbar {
@@ -651,13 +663,21 @@ footer nav ul li a:hover {
     box-shadow: none;
     border-radius: 0;
   }
+  /* Add side padding for containers to avoid edge-hugging */
   .about-container,
-  .services-container {
+  .services-container,
+  .contact-container {
     gap: 20px;
+    padding-left: 16px;
+    padding-right: 16px;
   }
   .about-img,
   .services-img {
     width: 180px;
+  }
+  .custom-bullets {
+    margin-left: 8px;
+    margin-right: 8px;
   }
 }
 
@@ -671,6 +691,8 @@ footer nav ul li a:hover {
   gap: 32px;
   flex-wrap: wrap;
   flex-direction: row;         /* Image right, text left */
+  padding-left: 32px;
+  padding-right: 32px;
 }
 .services-text {
   flex: 1 1 300px;
@@ -690,6 +712,8 @@ footer nav ul li a:hover {
 .custom-bullets {
   list-style: none;
   padding-left: 0;
+  margin-left: 12px;
+  margin-right: 12px;
 }
 .custom-bullets li {
   display: flex;
@@ -700,6 +724,8 @@ footer nav ul li a:hover {
   color: #28522a;
   line-height: 1.6;
   position: relative;
+  /* prevent bullet line from wrapping under the icon */
+  word-break: break-word;
 }
 .custom-bullets li::before {
   content: "";
@@ -719,11 +745,14 @@ footer nav ul li a:hover {
 /* ----------- TABLET & LARGE MOBILES ----------- */
 @media (max-width: 700px) {
   .about-container,
-  .services-container {
+  .services-container,
+  .contact-container {
     flex-direction: column;
     gap: 16px;
     text-align: center;
     align-items: stretch;
+    padding-left: 10px;
+    padding-right: 10px;
   }
   .about-img,
   .services-img {
@@ -732,7 +761,8 @@ footer nav ul li a:hover {
     max-width: 320px;
   }
   .about-text,
-  .services-text {
+  .services-text,
+  .contact-container {
     padding: 0 10px;
   }
   .about-text p,
@@ -744,6 +774,10 @@ footer nav ul li a:hover {
   }
   .services-img {
     order: 2;
+  }
+  .custom-bullets {
+    margin-left: 4px;
+    margin-right: 4px;
   }
   .custom-bullets li {
     gap: 0.7em;
@@ -826,6 +860,16 @@ footer nav ul li a:hover {
   .about-text p,
   .services-text p {
     font-size: 0.94rem;
+  }
+  .about-container,
+  .services-container,
+  .contact-container {
+    padding-left: 4px;
+    padding-right: 4px;
+  }
+  .custom-bullets {
+    margin-left: 2px;
+    margin-right: 2px;
   }
   .custom-bullets li {
     font-size: 1rem;
