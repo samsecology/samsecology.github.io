@@ -307,7 +307,6 @@ header {
   margin-left: 0;
   position: static; 
 }
-
 /* ===========================
    MAIN CONTENT
    =========================== */
@@ -337,39 +336,31 @@ section p {
 }
 
 /* ===========================
-   CONTACT SECTION & FORM
+   CONTACT SECTION & SKY BOX OUTLINE
    =========================== */
 #contact-bg-wrapper {
   position: relative;
-  left: 50%;
-  width: 100vw;
-  margin-left: -50vw;
-  margin-right: 0;
+  width: 100%;
+  margin: 40px auto;    
   padding: 0;
   background: none;
-  border-radius: 0;
-  box-shadow: none;
+  border: 3px solid #b7b0e3;
+  box-shadow: 0 8px 32px rgba(80, 80, 150, 0.10);
+  border-radius: 20px;
   overflow: hidden;
   min-height: 0;
   display: block;
 }
 
-.sky-bg {
+.sky-bg,
+#contact-bg-wrapper canvas {
   position: absolute;
   top: 0; left: 0;
-  width: 100vw;
+  width: 100% !important;
   height: 100%;
   z-index: 0;
   pointer-events: none;
-}
-
-#contact-bg-wrapper canvas {
-  z-index: 99;
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  width: 100vw !important;
-  height: 100%;
-  background: linear-gradient(#B7B0E3, #FFD3D6);  
+  background: linear-gradient(#B7B0E3, #FFD3D6);
   display: block;
 }
 
@@ -438,30 +429,48 @@ section p {
 }
 
 @media (max-width: 1023px) {
+  #contact-bg-wrapper {
+    max-width: 97vw;
+    margin: 16px auto;
+  }
   #contact-bg-wrapper .c2.one {left: -80px;}
   #contact-bg-wrapper .c2.two {left: -120px;}
   #contact-bg-wrapper .c2.three {right: 220px;}
   #contact-bg-wrapper .c2.four {right: 220px;}
 }
 
+/* ===========================
+   CONTACT CARD AND FORM
+   =========================== */
 #contact-bg-wrapper .contact-content {
   position: relative;
   z-index: 1001;
-  max-width: 700px;
-  margin: 0 auto;
+  max-width: 100%; 
+  margin: 0;
   padding: 2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
 }
 
 #contact {
   background: rgba(255,255,255,0.5);
   border-radius: 16px;
   box-shadow: 0 4px 24px rgba(44,95,45,0.11);
+  padding: 2rem;
+  width: 100%;
+  max-width: 100%;      
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
 }
 
 #contact h2 {
   color: #2c5f2d;
   font-size: 1.8rem;
   margin-bottom: 15px;
+  text-align: left;
 }
 
 #contact p {
@@ -469,12 +478,15 @@ section p {
   color: #333;
   margin-bottom: 15px;
   line-height: 1.6;
+  text-align: left;
 }
 
 #contact a {
   color: #2c5f2d;
   text-decoration: none;
   font-weight: bold;
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 #contact a:hover {
@@ -492,6 +504,7 @@ form label {
   font-size: 1.1rem;
   color: #4A5D23;
   font-weight: bold;
+  text-align: left;
 }
 
 form input, form textarea, form button {
@@ -521,7 +534,6 @@ form button:hover {
   background-color: #4A5D23;
   color: #cfe1b9;
 }
-
 /* ===========================
    FOOTER
    =========================== */
@@ -531,6 +543,7 @@ footer {
   padding: 0 10px 20px 10px;
   text-align: center;
   flex-shrink: 0;
+  margin-top: 0;
 }
 
 footer nav ul {
@@ -554,6 +567,20 @@ footer nav ul li a:hover {
   color: #cfe1b9;
   text-decoration: underline;
 }
+
+/* ===========================
+   RESPONSIVE
+   =========================== */
+@media (max-width: 700px) {
+  #contact-bg-wrapper .contact-content {
+    max-width: 98vw;
+    padding: 1rem 0.5rem;
+  }
+  #contact {
+    padding: 1.2rem 0.5rem;
+    max-width: 98vw;
+  }
+}
 /* ===========================
    RESPONSIVE STYLES
    =========================== */
@@ -567,7 +594,6 @@ html, body {
 }
 
 /* ----------- TABLET & SMALL DESKTOPS ----------- */
-/* CHANGED: was 950px, now 970px */
 @media (max-width: 970px) {
   .transparent-navbar {
     flex-direction: row;
@@ -882,5 +908,10 @@ html, body {
     width: 13px;
     height: 13px;
     margin-right: 0.2em;
+  }
+}
+@media (max-width: 420px) {
+  #contact p, #contact label {
+    font-size: 0.7rem;
   }
 }
