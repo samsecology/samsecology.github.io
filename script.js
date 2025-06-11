@@ -71,6 +71,17 @@
   // --- 5. Carousel ---
   initializeCarousel();
 
+// --- 5b. Lock carousel height on mobile to avoid pop/jank ---
+function lockCarouselHeight() {
+  var carousel = document.querySelector('.carousel');
+  if (!carousel) return;
+  var vh = window.innerHeight; // Viewport height on load
+  carousel.style.height = vh + 'px';
+}
+lockCarouselHeight();
+window.addEventListener('orientationchange', lockCarouselHeight);
+
+// --- 6. Bird flocking animation for canvas sky ---
   // --- 6. Bird flocking animation for canvas sky ---
   // --- BEGIN BIRD ANIMATION SKELETON ---
   /**
