@@ -145,9 +145,10 @@ header {
 .carousel {
   position: relative;
   width: 100%;
-  height: 100vh;
   overflow: hidden;
   background-color: #000;
+  height: 100vh; /* fallback */
+  height: calc(var(--vh, 1vh) * 100);
 }
 
 .carousel-item {
@@ -571,7 +572,9 @@ footer nav ul li a:hover {
    RESPONSIVE STYLES
    =========================== */
 
-
+.nav-toggle {
+  display: none;
+}
 /* ----------- TABLET & SMALL DESKTOPS ----------- */
 @media (max-width: 970px) {
   .transparent-navbar {

@@ -80,7 +80,7 @@ function lockCarouselHeight() {
 }
 lockCarouselHeight();
 window.addEventListener('orientationchange', lockCarouselHeight);
-
+// Set --vh to the correct value on load and resize
 // --- 6. Bird flocking animation for canvas sky ---
   // --- 6. Bird flocking animation for canvas sky ---
   // --- BEGIN BIRD ANIMATION SKELETON ---
@@ -732,3 +732,4 @@ function initializeCarousel() {
 
   setInterval(nextSlide, intervalTime);
 }
+
