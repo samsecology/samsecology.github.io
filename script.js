@@ -38,35 +38,59 @@
   }
 
   // --- 4. Form validation handler ---
-  const form = document.querySelector('form');
-  if (form) {
-    form.addEventListener('submit', function(event) {
-      event.preventDefault();
-      const name = form.querySelector('input[name="name"]');
-      const email = form.querySelector('input[name="email"]');
-      const message = form.querySelector('textarea[name="request"]');
-      const namePattern = /^[A-Za-z\s]{2,50}$/;
-      const emailPattern = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,}$/;
-      const messagePattern = /^.{10,1000}$/;
-      if (!namePattern.test(name.value.trim())) {
-        alert('Please enter a valid name (letters and spaces, 2-50 characters).');
-        name.focus();
-        return;
-      }
-      if (!emailPattern.test(email.value.trim())) {
-        alert('Please enter a valid email address.');
-        email.focus();
-        return;
-      }
-      if (!messagePattern.test(message.value.trim())) {
-        alert('Your message should be at least 10 characters.');
-        message.focus();
-        return;
-      }
+const form = document.getElementById('contact-form');
+if (form) {
+  form.addEventListener('submit', async function(event) {
+    event.preventDefault();
+    const name = form.querySelector('input[name="name"]');
+    const email = form.querySelector('input[name="email"]');
+    const message = form.querySelector('textarea[name="request"]');
+    const honeypot = form.querySelector('input[name="website"]');
+    const namePattern = /^[A-Za-z\s]{2,50}$/;
+    const emailPattern = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,}$/;
+    const messagePattern = /^.{10,1000}$/;
+
+    // --- Validation ---
+    if (!namePattern.test(name.value.trim())) {
+      alert('Please enter a valid name (letters and spaces, 2-50 characters).');
+      name.focus();
+      return;
+    }
+    if (!emailPattern.test(email.value.trim())) {
+      alert('Please enter a valid email address.');
+      email.focus();
+      return;
+    }
+    if (!messagePattern.test(message.value.trim())) {
+      alert('Your message should be at least 10 characters.');
+      message.focus();
+      return;
+    }
+    // --- Spam protection: honeypot field should be empty ---
+    if (honeypot.value.trim() !== '') {
+      // If honeypot is filled, likely spam—do nothing or log
+      return;
+    }
+
+    // --- Send data to backend (replace the URL with your API Gateway endpoint) ---
+    try {
+      await fetch('https://YOUR_API_GATEWAY_URL', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: name.value,
+          email: email.value,
+          message: message.value,
+          website: honeypot.value // honeypot
+        })
+      });
       alert('Thank you for reaching out!');
       form.reset();
-    });
-  }
+    } catch (error) {
+      alert('There was an error sending your message. Please try again later.');
+    }
+  });
+}
 
   // --- 5. Carousel ---
   initializeCarousel();

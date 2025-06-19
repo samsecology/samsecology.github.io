@@ -93,7 +93,6 @@
                 <div class="sky-bg">
                     <canvas id="canv"></canvas>
                     <div class="sky">
-                        
                         <div class="clouds">
                             <div class="c1 one"></div>
                             <div class="c1 two"></div>
@@ -115,7 +114,7 @@
                         <strong>Email:</strong> <a href="mailto:greenlightecologyltd@gmail.com">greenlightecologyltd@gmail.com</a><br>
                         <strong>Mobile:</strong> <span>+44 7503 139 327</span>
                     </p>
-                    <form>
+                    <form id="contact-form">
                         <label for="name">Name:</label>
                         <input type="text" id="name" name="name" placeholder="Enter your name" required>
 
@@ -124,6 +123,8 @@
 
                         <label for="request">Request:</label>
                         <textarea id="request" name="request" placeholder="Describe your request" required></textarea>
+
+                        <input type="text" id="website" name="website" style="display:none" autocomplete="off">
 
                         <button type="submit">Send</button>
                     </form>
