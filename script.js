@@ -74,7 +74,7 @@ if (form) {
 
     // --- Send data to backend (replace the URL with your API Gateway endpoint) ---
     try {
-      await fetch('https://YOUR_API_GATEWAY_URL', {
+      await fetch('https://tav3tpaz8e.execute-api.eu-west-2.amazonaws.com/contact-form-handler', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
