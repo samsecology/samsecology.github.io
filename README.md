@@ -1,7 +1,5 @@
 # Greenlight Ecology Website
 
-> **This project marks the start of my AWS portfolio.**
-
 I designed, developed, and deployed the official website for Greenlight Ecology.  
 The site was initially tested and previewed using GitHub Pages, and is now live in production on AWS S3.
 
